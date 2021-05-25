@@ -5,7 +5,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import lk.ijse.app.util.Cryptography;
-import lk.ijse.crypto.Dep7Crypto;
 
 
 public class DecryptionFormController {

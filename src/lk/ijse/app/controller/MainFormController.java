@@ -14,21 +14,21 @@ public class MainFormController {
     public AnchorPane contextOfHome;
 
     public void btnEncryption_OnAction(ActionEvent actionEvent) throws IOException {
-        loadForm("/lk/ijse/app/view/EncryptionForm.fxml");
+        loadForm("/lk/ijse/app/view/EncryptionForm.fxml","Encryption");
     }
 
 
 
     public void btnDecryption_OnAction(ActionEvent actionEvent) throws IOException {
-        loadForm("/lk/ijse/app/view/DecryptionForm.fxml");
+        loadForm("/lk/ijse/app/view/DecryptionForm.fxml","DeCryption");
     }
 
-    private void loadForm(String path) throws IOException {
+    private void loadForm(String path,String title) throws IOException {
         Stage stage = new Stage();
         Parent encryptionForm = FXMLLoader.load(this.getClass().getResource(path));
         Scene scene = new Scene(encryptionForm);
         stage.setScene(scene);
-        stage.setTitle("Encryption");
+        stage.setTitle(title);
         stage.centerOnScreen();
         stage.initOwner(this.contextOfHome.getScene().getWindow());
         stage.show();
