@@ -13,6 +13,13 @@ public class DecryptionFormController {
     public TextField txtText;
 
     public void btnDecrypt_OnAction(ActionEvent actionEvent) {
+        /*
+        * 1.Generate keyCode using entered key
+        * 2.Remove generated key code from each character in the cipher text
+        * 3. New text assign to cipher text
+        * 4. Get the original text by reducing -5 from the actual text
+        * 5. Get the original Text
+        * */
         String cipherText = txtCipher.getText();
         String key = txtKey.getText();
 
@@ -30,11 +37,6 @@ public class DecryptionFormController {
         } else{
             txtText.setText(Cryptography.decrypt(cipherText, key));
         }
-
-//        txtText.setText(Dep7Crypto.decrypt(cipherText, key));
-
-
-
 
 
     }

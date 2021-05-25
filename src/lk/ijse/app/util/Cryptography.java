@@ -33,10 +33,7 @@ public class Cryptography {
         String concatenatedText = secondText + key + firstText;
 
         //Generate keyNumber using entered key
-        int keyCode = 0;
-        for (int i = 0; i < key.length()-1; i++) {
-            keyCode += key.codePointAt(i);
-        }
+        int keyCode = generateKeyCode(key);
 
         //Add generated key number to concatenated text
         for (int i = 0; i < concatenatedText.length(); i++) {
@@ -49,6 +46,42 @@ public class Cryptography {
         return cipherText;
     }
     public static String decrypt(String cipherText, String key) {
-        return "";
+        int keyLength = key.length();
+
+        //Generate keyCode using entered key
+        int keyCode = generateKeyCode(key);
+
+        //Remove generated key code from each character in the cipher text
+        String text = "";
+        for (int i = 0; i < cipherText.length(); i++) {
+            int code = cipherText.charAt(i);
+            code -= keyCode;
+            char newChar = (char) code;
+            text += newChar;
+        }
+
+        cipherText = text;
+//
+
+        String originalText = "";
+        System.out.println(cipherText.length());
+        for (int i = ((cipherText.length()-keyLength)/2 +keyLength); i < cipherText.length(); i++) {
+            int code = cipherText.charAt(i);
+            code -= 5;
+            char newChar = (char) code;
+            originalText += newChar;
+
+        }
+//
+//
+        return originalText;
+    }
+
+    private static int generateKeyCode(String key) {
+        int keyCode = 0;
+        for (int i = 0; i < key.length()-1; i++) {
+            keyCode += key.codePointAt(i);
+        }
+        return keyCode;
     }
 }

@@ -20,6 +20,7 @@ public class EncryptionFormController {
          * 4. create variable called concatenatedText and assign  (String concatenatedText= secondText + key + firstText;)
          * 5. Generate keyNumber using entered key
          * 6. Add generated key number to each char in concatenated text
+         *
          * */
         String text = txtText.getText();
         String key = txtKey.getText();
